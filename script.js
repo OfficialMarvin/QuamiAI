@@ -1,4 +1,4 @@
-// Initialize SunWeb with your API key
+// Initialize SunWeb with your API key and private key
 const sunweb = new SunWeb(
   'https://api.trongrid.io',
   'https://api.trongrid.io',
@@ -8,27 +8,27 @@ const sunweb = new SunWeb(
 );
 
 // Get references to DOM elements
-const inputText = document.getElementById('input-text');
+const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
-const messageOutput = document.querySelector('.message-output');
+const chatMessages = document.querySelector('.chat-messages');
 
 // Add event listener to the send button
 sendButton.addEventListener('click', () => {
-  const message = inputText.value.trim();
+  const message = messageInput.value.trim();
   if (message) {
     displayMessage(message, 'user');
     processMessage(message);
-    inputText.value = '';
+    messageInput.value = '';
   }
 });
 
 // Display a message in the chat interface
 function displayMessage(message, sender) {
-  const messageBubble = document.createElement('div');
-  messageBubble.classList.add('message-bubble', sender);
-  messageBubble.textContent = message;
-  messageOutput.appendChild(messageBubble);
-  messageOutput.scrollTop = messageOutput.scrollHeight;
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message', `${sender}-message`);
+  messageElement.textContent = message;
+  chatMessages.appendChild(messageElement);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 // Process the user's message and generate a response
