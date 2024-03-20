@@ -1,48 +1,82 @@
-/* Style the chat interface */
+/* Reset default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-.chat-interface {
-  width: 400px;
-  height: 400px;
+body {
   font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+}
+
+.chat-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px #999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.chat-interface .message-input {
-  width: 100%;
-  height: 100px;
-  font-size: 16px;
+.chat-header {
+  background-color: #333;
+  color: #fff;
   padding: 10px;
-  border: 1px solid #ccc;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chat-body {
+  padding: 10px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.message-output {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-bubble {
+  max-width: 70%;
+  padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 10px #999;
+  margin-bottom: 10px;
+  word-wrap: break-word;
 }
 
-.chat-interface .message-output {
-  width: 100%;
-  height: 200px;
-  font-size: 16px;
+.message-bubble.user {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+}
+
+.message-bubble.bot {
+  background-color: #e2e2e2;
+  align-self: flex-start;
+}
+
+.chat-footer {
+  display: flex;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #999;
+  background-color: #f2f2f2;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.chat-interface .message-output .message-bubble {
-  width: 100%;
-  height: 100px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #999;
-}
-
-.chat-interface .message-output .message-bubble .message-text {
-  font-size: 16px;
+.chat-footer input[type="text"] {
+  flex-grow: 1;
   padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
-.chat-interface .message-output .message-bubble .message-metadata {
-  font-size: 12px;
-  padding: 10px;
-  text-align: right;
+.chat-footer button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
